@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
 
     if comment.save
       flash[:notice] = "Comment was saved successfully."
-      redirect_to [@post]
+      redirect_to [@post.topic, @post]
     else
       flash[:alert] = "Comment failed to save."
-      redirect_to [@post]
+      redirect_to [@post.topic, @post]
     end
   end
 
@@ -19,10 +19,10 @@ class CommentsController < ApplicationController
 
     if comment.destroy
       flash[:notice] = "Comment was deleted successfully."
-      redirect_to [@post]
+      redirect_to [@post.topic, @post]
     else
       flash[:alert] = "Comment couldn't be deleted. Try again."
-      redirect_to [@post]
+      redirect_to [@post.topic, @post]
     end
   end
 
