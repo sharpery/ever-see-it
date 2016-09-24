@@ -1,0 +1,11 @@
+<div class="media">
+  <div class="media-body">
+    <small>
+      Name commented:
+    </small>
+    <p><%= comment.body %> </p>
+    <small>
+    <%= time_ago_in_words(comment.created_at) %> ago | <%= link_to "Delete", [@post, comment], method: :delete %>
+  </small>
+  </div>
+</div>

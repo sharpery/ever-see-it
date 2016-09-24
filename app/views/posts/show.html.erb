@@ -9,8 +9,9 @@
     <p><%= @post.body %></p>
     <div>
       <h3>Comments</h3>
-      
+      <%= render @post.comments %>
     </div>
+    <%= render 'comments/form', comment: Comment.new, post: @post %>
   </div>
   <div class="col-md-4">
     <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>

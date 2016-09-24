@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about'
   root 'welcome#index'
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
