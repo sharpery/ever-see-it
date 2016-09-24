@@ -1,15 +1,15 @@
 class TopicsController < ApplicationController
 
   def edit
-    @topics = Topic.find(params[:id])
+    @topic = Topic.find(params[:id])
   end
 
   def index
-    @topics = Topic.all
+    @topic = Topic.all
   end
 
   def new
-    @topics = Topic.new
+    @topic = Topic.new
   end
 
   def show
