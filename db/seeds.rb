@@ -9,6 +9,13 @@ require 'random_data'
 end
 users = User.all
 
+10.times do
+  Label.create!(
+  name: RandomData.random_word,
+  )
+end
+lables = Label.all
+
 15.times do
   Topic.create!(
   name: RandomData.random_sentence,
@@ -57,6 +64,7 @@ user.update_attributes!(
 )
 
 puts "Seed finished"
+puts "#{Label.count} labels created"
 puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
