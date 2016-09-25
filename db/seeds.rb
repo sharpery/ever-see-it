@@ -52,8 +52,9 @@ password: 'helloworld'
 
 user = User.first
 user.update_attributes!(
-  email: 'moderator@gmail.com',
-  password: "hihihi!"
+  email: 'admin@gmail.com',
+  password: "hihihi",
+  role: 'admin'
 )
 
 puts "Seed finished"
