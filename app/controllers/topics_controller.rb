@@ -8,7 +8,7 @@ class TopicsController < ApplicationController
   end
 
   def index
-    @topic = Topic.all
+    @topic = Topic.visible_to(current_user)
   end
 
   def new
@@ -17,6 +17,11 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+
+    unless @topic.puble || current_user
+      flash[:alert] = "You must be signed in to view private topics."
+      redirect_to new_session_path
+    end
   end
 
   def create

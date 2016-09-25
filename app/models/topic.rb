@@ -3,6 +3,8 @@ class Topic < ActiveRecord::Base
   has_many :labelings, as: :labelable
   has_many :labels, through: :labelings
 
+  scope :visible_to, -> (user) { user ? all : where(public: true) }
+
   validates :name, length: { minimum: 5 }, presence: true
   validates :description, length: { minimum: 20 }, presence: true
 end
